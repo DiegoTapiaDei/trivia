@@ -16,5 +16,10 @@
     "url": "https://github.com/elweondelabosa/trivia/issues"
   },
   "homepage": "https://github.com/elweondelabosa/trivia#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.7.1",
+    "pug": "^2.0.4"
+  }
 }
