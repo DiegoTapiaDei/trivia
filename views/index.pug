@@ -3,6 +3,8 @@ html
   head
   body
     h1 hola
-    form
+    form(action="/question" method="post")
       input
       input(type='submit' value='guardar')
+    ul
+      each q in
