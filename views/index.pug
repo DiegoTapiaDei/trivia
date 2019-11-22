@@ -1,10 +1,47 @@
 doctype html
 html
   head
+    script(type='text/javascript' src='script.js')
+
   body
-    h1 hola
-    form(action="/question" method="post")
-      input
-      input(type='submit' value='guardar')
-    ul
-      each q in
+    if (!user)
+     h1 login
+      form(action='/login' method='post')
+      br
+      input(name='username' placeholder='usurio')
+      br
+      input(name='password' type= placeholder='contraceña')
+      br
+      input(type='sumbit' value='Ingresar')
+    h3 no tenes usuario ?
+    a(href='/singnup') Reguistrate
+
+    else
+      h1 Bienvenido #{user.username}
+      a(hrft='/logout') Logout
+    h1 Trivia
+    h4 nueva pregunta
+    from(action='/question'method='post')
+      input(name='question' placeholder='Pregunta')
+      br
+      input(name='answerA' placeholder='Respuesta A')
+      input(name='checkboxA' type='checkbox' value='true')
+      br
+      input(name='answerB' placeholder='Pregunta B')
+      input(name='checkboxB' typ='checkbox' value='true')
+      br
+      input(name='answerC' placeholder='Pregunta C')
+      input(name='checkboxC' type='checkbox' value='true')
+      br
+      input(name='answerD' placeholder='Pregunta D')
+      input(name='checkboxD' type='checkbox' value='true')
+      br
+      input(type='sumbit' value='Guardar')
+    br
+    ol
+      each question in question
+        li= question.litle
+          ol(type='A')
+            each answer in question.answer
+              li(id=answer._id) #{answer.title}
+                input(type='radio' id=answer._id name=question._id value=answer._isRight ? 'true' : 'false' onclick='checkAnswer(this)' rta=answer._id)
